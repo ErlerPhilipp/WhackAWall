@@ -6,6 +6,8 @@ TagManager:
   tags:
   - left
   - good
+  - Bullet
+  - enemy
   layers:
   - Default
   - TransparentFX

@@ -16,9 +16,9 @@ public class despawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         spawner spawn = SpawnArea.GetComponent("spawner") as spawner;
-        if (spawn.gameTimer<0)
+        if (spawn.gameTimer<=0)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         lifeTime--;
         if (lifeTime==0)
@@ -31,9 +31,11 @@ public class despawn : MonoBehaviour {
        // audio.Play();
         spawner spawn = SpawnArea.GetComponent("spawner") as spawner;
         spawn.spawnNum--;
-        
-        GameObject boomInstance = Instantiate(boom, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
-        
+        if (lifeTime > 0)
+        {
+            GameObject boomInstance = Instantiate(boom, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
+        }
         Destroy(this.gameObject);
+        
     }
 }

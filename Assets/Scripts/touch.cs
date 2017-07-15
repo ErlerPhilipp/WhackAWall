@@ -38,7 +38,7 @@ public class touch : MonoBehaviour {
             RenderSettings.ambientIntensity = 1;
             RenderSettings.ambientLight = Color.grey;
             RenderSettings.reflectionIntensity = 1;
-            RenderSettings.fog = true;
+           // RenderSettings.fog = true;
             timeCounter = 0;
         }
     }
@@ -56,6 +56,7 @@ public class touch : MonoBehaviour {
         {
             Instantiate(beam, beamStart.transform.position, this.transform.rotation*Quaternion.Euler(0,-90,0));
         }
+
 
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
         {
