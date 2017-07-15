@@ -8,12 +8,17 @@ public class touch : MonoBehaviour {
 
     SteamVR_TrackedObject trackedObj;
     public GameObject SpawnArea;
+    AudioSource audio;
+    public AudioClip beam;
     int counter = 0;
     
     // Use this for initialization
     void Awake () {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
-	}
+        audio = GetComponent<AudioSource>();
+        beam = GetComponent<AudioClip>();
+
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -28,8 +33,11 @@ public class touch : MonoBehaviour {
     public void OnTriggerStay(Collider other)
     {
         SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackedObj.index);
+        
+        
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
         {
+            audio.PlayOneShot(beam,1);
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);
             spawner spawn = SpawnArea.GetComponent("spawner") as spawner;
