@@ -97,11 +97,11 @@ public class touch : MonoBehaviour {
                 timeCounter = 300;
                 if (trackedObj.tag == "left")
                 {
-                    spawn.leftscore--;
+                    spawn.leftscore =- 5;
                 }
                 else
                 {
-                    spawn.rightscore--;
+                    spawn.rightscore =- 5;
                 }
             }
             else

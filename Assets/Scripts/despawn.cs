@@ -15,6 +15,11 @@ public class despawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        spawner spawn = SpawnArea.GetComponent("spawner") as spawner;
+        if (spawn.gameTimer<0)
+        {
+            Destroy(this);
+        }
         lifeTime--;
         if (lifeTime==0)
         {

@@ -21,7 +21,7 @@ public class BeamCollision : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//RayCollision
-		RaycastHit hit;
+		/*RaycastHit hit;
         int layerMask = ~(1 << LayerMask.NameToLayer("NoBeamHit") | 1 << 2);
         if (HitEffect != null && !bHit && Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, layerMask))
         {
@@ -46,7 +46,7 @@ public class BeamCollision : MonoBehaviour {
 				obj.transform.localScale = this.transform.localScale;
 			}
 			//print("find" + hit.collider.gameObject.name);
-		}
+		}*/
 		/*
 		if(bHit && BL != null)
 		{
