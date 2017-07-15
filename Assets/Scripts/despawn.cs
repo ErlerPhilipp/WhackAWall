@@ -3,21 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class despawn : MonoBehaviour {
-    int timer = 900;
+    public int lifeTime = 3600;
     public GameObject SpawnArea;
+    public GameObject boom;
+   // new AudioSource audio;
+    
     // Use this for initialization
     void Start () {
-        		
-	}
+       // audio = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        timer--;
-        if (timer==0)
+        lifeTime--;
+        if (lifeTime==0)
         {
-            spawner spawn = SpawnArea.GetComponent("spawner") as spawner;
-            spawn.spawnNum--;
-            Destroy(this.gameObject);
+            kill();
         }
 	}
+    public void kill()
+    {
+       // audio.Play();
+        spawner spawn = SpawnArea.GetComponent("spawner") as spawner;
+        spawn.spawnNum--;
+        
+        GameObject boomInstance = Instantiate(boom, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
+        
+        Destroy(this.gameObject);
+    }
 }

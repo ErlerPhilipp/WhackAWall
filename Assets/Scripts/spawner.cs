@@ -7,14 +7,16 @@ public class spawner : MonoBehaviour {
 
     public GameObject[] ghosts = {};
     public int spawnNum = 0;
-    int maxNum = 3;
+    public int maxNum = 3;
     public int leftscore = 0;
     public int rightscore = 0;
     public int gameTimer = 16200;
-    public
+    public GameObject boom;
+    public AudioClip clip;
+    
 
 
-    void spawn()
+    public void spawn()
     {
         for(int i = spawnNum; i < maxNum; i++)
         {
@@ -24,6 +26,12 @@ public class spawner : MonoBehaviour {
             int whichGhost = Random.Range(0, ghosts.Length);
             GameObject ghost = Instantiate(ghosts[whichGhost], HitSpherePos, Quaternion.LookRotation(new Vector3(-1,0,0), new Vector3(0,1,0))) as GameObject;
             despawn newDespawner = ghost.AddComponent<despawn>();
+            newDespawner.boom = boom;
+            newDespawner.lifeTime = 1200;
+           // AudioSource newAudio = ghost.AddComponent<AudioSource>();
+
+           // newAudio.playOnAwake = false;
+           // newAudio.clip = clip; 
             newDespawner.SpawnArea = this.gameObject;
             spawnNum++;
             

@@ -82,9 +82,10 @@ public class touch : MonoBehaviour {
         if (device.GetPress(SteamVR_Controller.ButtonMask.Trigger))
         {
             other.gameObject.SetActive(false);
-            Destroy(other.gameObject);
+            other.GetComponent<despawn>().kill();
+            
             spawner spawn = SpawnArea.GetComponent("spawner") as spawner;
-            spawn.spawnNum--;
+            //spawn.spawnNum--;
             if (other.gameObject.tag == "good")
             {
                 counter = 45;
