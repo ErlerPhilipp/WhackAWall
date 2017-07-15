@@ -9,14 +9,14 @@ public class touch : MonoBehaviour {
     SteamVR_TrackedObject trackedObj;
     public GameObject SpawnArea;
     AudioSource audio;
-    public AudioClip beam;
+   
     int counter = 0;
     
     // Use this for initialization
     void Awake () {
-        trackedObj = GetComponent<SteamVR_TrackedObject>();
+        trackedObj = this.GetComponentInParent<SteamVR_TrackedObject>();
         audio = GetComponent<AudioSource>();
-        beam = GetComponent<AudioClip>();
+    
 
     }
 	
@@ -28,16 +28,25 @@ public class touch : MonoBehaviour {
             SteamVR_Controller.Input((int)trackedObj.index).TriggerHapticPulse(2000);
             counter--;
         }
-	}
+
+        SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackedObj.index);
+        if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            audio.Play();
+        }
+        if (device.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            audio.Stop();
+        }
+    }
 
     public void OnTriggerStay(Collider other)
     {
         SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackedObj.index);
         
         
-        if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
+        if (device.GetPress(SteamVR_Controller.ButtonMask.Trigger))
         {
-            audio.PlayOneShot(beam,1);
             other.gameObject.SetActive(false);
             Destroy(other.gameObject);
             spawner spawn = SpawnArea.GetComponent("spawner") as spawner;
@@ -57,6 +66,5 @@ public class touch : MonoBehaviour {
 
             
         }
-
     }
 }
