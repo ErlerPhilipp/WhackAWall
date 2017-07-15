@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400000}
   - component: {fileID: 9500000}
+  - component: {fileID: 136376485393505792}
   m_Layer: 0
   m_Name: Seagull
   m_TagString: Untagged
@@ -189,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: -1.472168, y: 9.9, z: 0.1274414}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -313,7 +314,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
-  m_LocalRotation: {x: 0.37190828, y: 0.37190822, z: -0.6014019, w: 0.60140187}
+  m_LocalRotation: {x: 0.3719083, y: 0.37190825, z: -0.601402, w: 0.6014019}
   m_LocalPosition: {x: -0, y: 0, z: 0.056520745}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -431,3 +432,16 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
+--- !u!136 &136376485393505792
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

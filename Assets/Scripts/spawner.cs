@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class spawner : MonoBehaviour {
 
-    public GameObject hitSphere;
+    public GameObject[] ghosts = {};
     public int spawnNum = 0;
     int maxNum = 3;
     public int leftscore = 0;
     public int rightscore = 0;
+    public int gameTimer = 16200;
+    public
 
 
     void spawn()
@@ -18,8 +21,12 @@ public class spawner : MonoBehaviour {
             Vector3 HitSpherePos = new Vector3(this.transform.position.x + Random.Range(-this.transform.lossyScale.x/2, this.transform.lossyScale.x/2),
                                                this.transform.position.y + Random.Range(-this.transform.lossyScale.y/2, this.transform.lossyScale.y/2),
                                                this.transform.position.z + Random.Range(-this.transform.lossyScale.z/2, this.transform.lossyScale.z/2));
-            Instantiate(hitSphere, HitSpherePos, Quaternion.identity);
+            int whichGhost = Random.Range(0, ghosts.Length);
+            GameObject ghost = Instantiate(ghosts[whichGhost], HitSpherePos, Quaternion.LookRotation(new Vector3(-1,0,0), new Vector3(0,1,0))) as GameObject;
+            despawn newDespawner = ghost.AddComponent<despawn>();
+            newDespawner.SpawnArea = this.gameObject;
             spawnNum++;
+            
         }
     }
 
@@ -33,6 +40,10 @@ public class spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        spawn();
+        if (gameTimer > 0)
+        {
+            spawn();
+            gameTimer--;
+        }
     }
 }
