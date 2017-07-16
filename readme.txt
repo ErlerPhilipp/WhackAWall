@@ -1,5 +1,5 @@
 Defend the Psychic
-by by Philipp Erler, Marc Kroll and Kevin Sidak
+by Philipp Erler, Marc Kroll and Kevin Sidak
 
 Your crippled psychic friend is attacked by ghost only he can see.
 Luckily, you and another friend have guns which can kill the ghosts.
