@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(SteamVR_TrackedObject))]
 
@@ -78,6 +79,12 @@ public class touch : MonoBehaviour {
             }
         }
 
+        spawner spawn = SpawnArea.GetComponent("spawner") as spawner;
+        if (spawn.gameTimer <= 0 && device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
+        {
+            changeToScene(1);
+        }
+
     }
 
     public void OnTriggerStay(Collider other)
@@ -129,5 +136,9 @@ public class touch : MonoBehaviour {
 
             
         }
+    }
+    public void changeToScene(int sceneToChangeTo)
+    {
+        SceneManager.LoadScene(sceneToChangeTo);
     }
 }

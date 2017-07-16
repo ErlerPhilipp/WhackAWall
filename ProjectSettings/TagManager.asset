@@ -8,6 +8,7 @@ TagManager:
   - good
   - Bullet
   - enemy
+  - gameover
   layers:
   - Default
   - TransparentFX

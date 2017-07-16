@@ -15,6 +15,7 @@ public class spawner : MonoBehaviour {
     public GameObject boomPlus;
     public AudioClip clip;
     public GameObject steeringTarget;
+    public Canvas gameover;
 
     public void spawn()
     {
@@ -72,6 +73,11 @@ public class spawner : MonoBehaviour {
         {
             maxNum = 25;
         }
-        
+        if(gameTimer <= 0)
+        {
+            gameover.gameObject.SetActive(true);
+        }
     }
+
+
 }
