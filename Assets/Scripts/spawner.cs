@@ -10,8 +10,9 @@ public class spawner : MonoBehaviour {
     public int maxNum = 3;
     public int leftscore = 0;
     public int rightscore = 0;
-    public int gameTimer = 16200;
-    public GameObject boom;
+    public int gameTimer = 8100;
+    public GameObject boomMinus;
+    public GameObject boomPlus;
     public AudioClip clip;
     public GameObject steeringTarget;
 
@@ -28,7 +29,11 @@ public class spawner : MonoBehaviour {
             int whichGhost = Random.Range(0, ghosts.Length);
             GameObject ghost = Instantiate(ghosts[whichGhost], HitSpherePos, Quaternion.LookRotation(new Vector3(-1,0,0), new Vector3(0,1,0))) as GameObject;
             despawn newDespawner = ghost.AddComponent<despawn>();
-            newDespawner.boom = boom;
+            newDespawner.boom = boomMinus;
+            if(ghost.gameObject.tag == "good")
+            {
+                newDespawner.boom = boomPlus;
+            }
             newDespawner.lifeTime = 9000;
 
             steering newSteering = ghost.AddComponent<steering>();
@@ -59,5 +64,14 @@ public class spawner : MonoBehaviour {
             spawn();
             gameTimer--;
         }
+        if (gameTimer == 5400)
+        {
+            maxNum = 15;
+        }
+        else if(gameTimer == 2700)
+        {
+            maxNum = 25;
+        }
+        
     }
 }
