@@ -9,7 +9,7 @@ public class touch : MonoBehaviour {
     SteamVR_TrackedObject trackedObj;
     public GameObject SpawnArea;
     new AudioSource audio;
-    public Light light;
+    public Light[] lights;
     public GameObject beam;
     public GameObject beamStart;
    
@@ -34,7 +34,10 @@ public class touch : MonoBehaviour {
    
         if (timeCounter == 1)
         {
-            light.enabled = true;
+            foreach (Light light in lights)
+            {
+                light.enabled = true;
+            }
             RenderSettings.ambientIntensity = 1;
             RenderSettings.ambientLight = Color.grey;
             RenderSettings.reflectionIntensity = 1;
@@ -90,7 +93,10 @@ public class touch : MonoBehaviour {
             if (other.gameObject.tag == "good")
             {
                 counter = 45;
-                light.enabled = false;
+                foreach (Light light in lights)
+                {
+                    light.enabled = false;
+                }
                 RenderSettings.ambientIntensity = 0;
                 RenderSettings.ambientLight = Color.black;
                 RenderSettings.reflectionIntensity = 0;
