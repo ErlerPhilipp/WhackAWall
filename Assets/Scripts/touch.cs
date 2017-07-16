@@ -12,6 +12,7 @@ public class touch : MonoBehaviour {
     public Light[] lights;
     public GameObject beam;
     public GameObject beamStart;
+    public int soundCounter = 20;
    
     int counter = 0;
     int timeCounter = 0;
@@ -55,27 +56,28 @@ public class touch : MonoBehaviour {
         }
 
         SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackedObj.index);
-        if (device.GetPress(SteamVR_Controller.ButtonMask.Trigger))
-        {
-            Instantiate(beam, beamStart.transform.position, this.transform.rotation*Quaternion.Euler(0,-90,0));
-        }
-
-
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
         {
+            Instantiate(beam, beamStart.transform.position, this.transform.rotation*Quaternion.Euler(0,-90,0));
             if (!audio.isPlaying)
             {
                 audio.Play();
-                
+
             }
         }
-        if (device.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
+        if (audio.isPlaying)
         {
-            audio.Stop();
+            if (soundCounter > 0)
+            {
+                soundCounter--;
+            }
+            else
+            {
+                audio.Stop();
+                soundCounter = 20;
+            }
         }
 
-      
-        
     }
 
     public void OnTriggerStay(Collider other)
@@ -83,7 +85,7 @@ public class touch : MonoBehaviour {
         SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackedObj.index);
         
         
-        if (device.GetPress(SteamVR_Controller.ButtonMask.Trigger))
+        if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
         {
             other.gameObject.SetActive(false);
             other.GetComponent<despawn>().kill();
