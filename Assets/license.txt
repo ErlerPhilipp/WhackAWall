@@ -1,4 +1,4 @@
-Licenses for Psychic Defense
+Licenses for Defend the Psychic
 
 low poly gun by abanoub ashraf
 https://www.turbosquid.com/FullPreview/Index.cfm/ID/757242
@@ -16,8 +16,6 @@ http://www.noiseforfun.com/2012-sound-effects/glass-breaking/
 Licensed under CC BY-ND 3.0
 https://creativecommons.org/licenses/by-nd/3.0/
 
-<<<<<<< HEAD
-=======
 Energy Short Sword 1.wav by ejfortin
 https://freesound.org/people/ejfortin/sounds/49672/
 Licensed under CC Sampling Plus 1.0
@@ -53,7 +51,11 @@ https://freesound.org/people/ejfortin/sounds/49678/
 Licensed under CC Sampling Plus 1.0
 https://creativecommons.org/licenses/sampling+/1.0/
 
->>>>>>> bc83bda3ae045c18295d07bdfdc753a7101b5cce
+Level Up 02 by rhodesmas
+https://freesound.org/people/rhodesmas/sounds/320654/
+Licensed under CC BY 3.0
+https://creativecommons.org/licenses/by/3.0/
+
 bonus_lazer by Alex Römich
 Licensed under CC BY 3.0
 https://creativecommons.org/licenses/by/3.0/
@@ -72,12 +74,6 @@ https://unity3d.com/legal/as_terms
 BasicBeamShot Free by BeamMan
 https://www.assetstore.unity3d.com/en/#!/content/27665
 from Unity Asset Story
-<<<<<<< HEAD
-slightly modified (hit ray-cast deactivated)
-Licensed under Asset Store EULA
-https://unity3d.com/legal/as_terms
-
-=======
 slightly modified
 Licensed under Asset Store EULA
 https://unity3d.com/legal/as_terms
@@ -95,5 +91,3 @@ from Unity Asset Story
 slightly modified
 Licensed under Asset Store EULA
 https://unity3d.com/legal/as_terms
->>>>>>> bc83bda3ae045c18295d07bdfdc753a7101b5cce
-
